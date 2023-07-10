@@ -1,0 +1,14 @@
+image: node:10.16.0
+
+pipelines:
+    default:
+        - step:
+            caches:
+              - node
+            name: Check deps, code style, tests and build
+            script:
+              - npm i
+              - npm run lint
+              - npm run lint:css
+              - npm run test
+              - npm run build
